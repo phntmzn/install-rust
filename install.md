@@ -109,3 +109,73 @@ brew upgrade rust
 -  [oai_citation:1‡rust-lang.org](https://www.rust-lang.org/?utm_source=chatgpt.com)
 
 Would you like to use **Homebrew exclusively** for managing your Rust toolchain, or install `rustup` alongside it?
+
+This means Homebrew installed Rust, but your system is currently using **rustup**, which doesn't have a default Rust toolchain configured.
+
+### 1. Fix the error
+
+Run this in Terminal:
+
+```bash
+rustup default stable
+```
+
+This downloads and configures the latest stable Rust toolchain.
+
+### 2. Verify installation
+
+```bash
+rustc --version
+cargo --version
+rustup show
+```
+
+### 3. Test compilation
+
+Create a test file:
+
+```bash
+nano hello.rs
+```
+
+Paste:
+
+```rust
+fn main() {
+    println!("Rust is working!");
+}
+```
+
+Compile:
+
+```bash
+rustc hello.rs -o hello
+```
+
+Execute:
+
+```bash
+./hello
+```
+
+Expected output:
+
+```text
+Rust is working!
+```
+
+### 4. Check which Rust installation you're using
+
+```bash
+which rustc
+which cargo
+which rustup
+```
+
+**My recommendation:** Since rustup is already installed and being invoked, use it to manage Rust versions. You can still use Homebrew for other development tools.
+
+Official documentation:  [oai_citation:0‡rust-lang.github.io](https://rust-lang.github.io/rustup/?utm_source=chatgpt.com)
+
+**What would you prefer next?**
+
+
